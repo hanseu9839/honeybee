@@ -21,7 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity {
     private long backKeyPressedTime = 0;
     private Toast toast;
-    private ImageView btn_chat,btn_story,btn_info,btn_calendar;
+    private ImageView btn_chat,btn_story,btn_info,btn_calendar,iv_location;
 
     Intent intent = getIntent();
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btn_story = findViewById(R.id.btn_story);
         btn_info = findViewById(R.id.btn_info);
         btn_calendar = findViewById(R.id.btn_calendar);
-
+        iv_location = findViewById(R.id.iv_location);
 
 
         btn_chat.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, calendarMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        iv_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,locationMainActivity.class);
                 startActivity(intent);
             }
         });
